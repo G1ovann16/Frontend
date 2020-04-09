@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule, HttpClient} from '@angular/common/http';
 
+//#region components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeadersComponent } from './containers/headers/headers.component';
@@ -9,6 +11,7 @@ import { TaskComponent } from './components/task/task.component';
 import { CategoryComponent } from './components/category/category.component';
 import { StadComponent } from './components/stad/stad.component';
 import { UserComponent } from './components/user/user.component';
+//#endregion
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { UserComponent } from './components/user/user.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

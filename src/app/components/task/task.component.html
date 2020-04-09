@@ -1,1 +1,38 @@
-<p>task works!</p>
+<div class="centered_content">
+    <div class="task-manager-container">
+        <div class="sidebar" *ngFor="let task of taskList">
+        <h1 class="title">
+            <p class="text-secondary">
+                {{task.name}}
+            </p>
+        </h1>
+        <div class="list-menu">
+           <a class="list-menu-item text-primary">
+                <p> primera tarea </p>
+           </a>
+        </div>
+        <div class="list-menu">
+            <a class="list-menu-item text-primary">
+                 <p> primera tarea </p>
+            </a>
+         </div>
+         <div class="list-menu">
+            <a class="list-menu-item text-primary">
+                 <p> primera tarea </p>
+            </a>
+         </div>
+        <button class="btn btn-secondary disabled">+ New Task</button>
+        </div>
+
+        <div class="task-list-container">
+        <h1 class="title">
+           <p class="text-secondary">
+            Tasks
+           </p> 
+        </h1>
+        <div class="task">
+            <p class="text-primary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam soluta similique natus aspernatur saepe! Aut expedita iusto, nihil recusandae quisquam iste officia eius, suscipit corrupti maiores repudiandae eveniet autem sapiente?</p>
+        </div>
+        </div>
+    </div>
+</div>

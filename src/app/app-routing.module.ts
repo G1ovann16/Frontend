@@ -7,7 +7,7 @@ import {StadComponent} from './components/stad/stad.component';
 
 const routes: Routes = [
   {path: 'category', component: CategoryComponent},
-  {path: 'stad', component: StadComponent},
+  {path: 'stat', component: StadComponent},
   {path: 'user', component: UserComponent},
   {path: 'task', component: TaskComponent}
 ];
