@@ -11,15 +11,22 @@ import {NgForm} from '@angular/forms';
 export class TaskComponent implements OnInit {
 
   constructor(public taskService: TaskService) { }
+
 taskList = [];
-  ngOnInit(): void {
+showDescription = false;
+taskDescription = '';
+
+ngOnInit(): void {
     this.getAllTask();
   }
 
   getAllTask(){
 this.taskService.getAll()
+// tslint:disable-next-line: no-shadowed-variable
 .subscribe(( task: any) =>
-    {console.log(task);
+    {
+      this.taskList = task;
+      console.log(this.taskList[0].name, task);
     },
     err => console.log(err)
             );
@@ -35,5 +42,11 @@ delTask(i: number){
   .subscribe(msn => this.getAllTask());
 
           }
+visible(i: number){
+this.showDescription = true;
+this.taskDescription = this.taskList[i].description;
+console.log(this.taskDescription);
+return this.taskDescription;
+}
 
 }
