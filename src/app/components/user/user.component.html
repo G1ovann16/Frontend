@@ -1,13 +1,22 @@
 <div class="task-manager-container">
-    <div class="sidebar" >
-    <h1 class="title">
-        <p class="text-secondary">
+      <p class="text-secondary">
           Users
         </p>
+    <div class="sidebar" >
+    <h1 class="title">
     </h1>
     <div class="list-menu" *ngFor="let user of userList" >
        <a class="list-menu-item text-primary">
-            <p  >  name: {{user.name}} </p>
-            
-       </a>
+        <div class="wrap">
+          <p>  name: {{user.name}} </p>
+          <p>  lastName: {{user.lastName}} </p>
+          <p>  email: {{user.email}} </p>
+          <p>  password: {{user.password}} </p>
+          <p>  direction: {{user.direction}} </p>
+          <p *ngIf="!!user.taskId">  link to task: {{user.taskId}} </p>
+        </div>
+      </a>
+          <div class="progress">
+           <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+         </div>
     </div>

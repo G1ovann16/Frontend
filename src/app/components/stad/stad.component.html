@@ -2,12 +2,16 @@
   <div class="sidebar" >
   <h1 class="title">
       <p class="text-secondary">
-        Users
+        Status
       </p>
   </h1>
   <div class="list-menu" *ngFor="let stat of stadList" >
      <a class="list-menu-item text-primary">
           <p  >  name: {{stat.name}} </p>
-          
+          <p  >  register: {{stat.register}} </p>
+          <p *ngIf="!!stat.taskId">  link to task: {{stat.taskId}} </p>
+          <div class="progress">
+           <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+         </div>
      </a>
   </div>
