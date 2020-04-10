@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {TaskService} from '../../services/task.service';
-import {task} from '../../models/task';
+import {task, Category} from '../../models/task';
 import {NgForm} from '@angular/forms';
 
 @Component({
@@ -9,16 +9,20 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./task.component.scss']
 })
 export class TaskComponent implements OnInit {
+  taskList: task[] = [];
+  showDescription = false;
+  i: number;
+  @Input() public taskDescription: string ;
+  taskUser: {};
+  taskStat: {};
+  taskCategory: Category ;
 
   constructor(public taskService: TaskService) { }
 
-taskList = [];
-showDescription = false;
-taskDescription = '';
 
 ngOnInit(): void {
-    this.getAllTask();
-  }
+  this.getAllTask();
+   }
 
   getAllTask(){
 this.taskService.getAll()
@@ -26,7 +30,6 @@ this.taskService.getAll()
 .subscribe(( task: any) =>
     {
       this.taskList = task;
-      console.log(this.taskList[0].name, task);
     },
     err => console.log(err)
             );
@@ -44,9 +47,21 @@ delTask(i: number){
           }
 visible(i: number){
 this.showDescription = true;
+this.i = i;
+
 this.taskDescription = this.taskList[i].description;
-console.log(this.taskDescription);
-return this.taskDescription;
 }
 
+showCategory(){
+    this.taskCategory = this.taskList[this.i].Category;
+    console.log(this.taskCategory.name) ;
+}
+showStat()
+{
+  this.taskStat = this.taskList[this.i].Stad;
+}
+showUser()
+{
+  this.taskUser = this.taskList[this.i].User;
+}
 }

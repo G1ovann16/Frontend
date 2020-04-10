@@ -1,1 +1,13 @@
-<p>user works!</p>
+<div class="task-manager-container">
+    <div class="sidebar" >
+    <h1 class="title">
+        <p class="text-secondary">
+          Users
+        </p>
+    </h1>
+    <div class="list-menu" *ngFor="let user of userList" >
+       <a class="list-menu-item text-primary">
+            <p  >  name: {{user.name}} </p>
+            
+       </a>
+    </div>

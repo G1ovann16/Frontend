@@ -50,6 +50,14 @@ border-bottom-right-radius:  8px;
     }
 }    
    
-.btn{
+.btn-secondary{
    margin-top: 100%;
 }
+
+.boton{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 2rem;
+}
+

@@ -1,1 +1,13 @@
-<p>stad works!</p>
+<div class="task-manager-container">
+  <div class="sidebar" >
+  <h1 class="title">
+      <p class="text-secondary">
+        Users
+      </p>
+  </h1>
+  <div class="list-menu" *ngFor="let stat of stadList" >
+     <a class="list-menu-item text-primary">
+          <p  >  name: {{stat.name}} </p>
+          
+     </a>
+  </div>

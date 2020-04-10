@@ -1,1 +1,13 @@
-<p>category works!</p>
+<div class="task-manager-container">
+   <div class="sidebar" >
+   <h1 class="title">
+       <p class="text-secondary">
+         Users
+       </p>
+   </h1>
+   <div class="list-menu" *ngFor="let categories of categoryList" >
+      <a class="list-menu-item text-primary">
+           <p  >  name: {{categories.name}} </p>
+           
+      </a>
+   </div>
