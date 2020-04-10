@@ -10,13 +10,27 @@ import {NgForm} from '@angular/forms';
 })
 export class TaskComponent implements OnInit {
   taskList: task[] = [];
+  showAll = false;
   showDescription = false;
+  showcategory = false;
+  showuser = false;
+  showstat = false;
   i: number;
   @Input() public taskDescription: string ;
   taskUser: {};
   taskStat: {};
-  taskCategory: Category ;
+  //#region var relacionales
+  taskCategoryName: string ;
+  taskCategoryDescription: string ;
+  taskStatname: string ;
+  taskStatregister: string ;
+  taskUsername: string ;
+  taskUserlastName: string ;
+  taskUseremail: string ;
+  taskUserpassword: string ;
+  taskUserdirection: string ;
 
+  //#endregion
   constructor(public taskService: TaskService) { }
 
 
@@ -36,6 +50,7 @@ this.taskService.getAll()
         }
 
 addTask(taskform: NgForm){
+  this.showAll = true;
   this.taskService.setTask(taskform.value)
   .subscribe(msn => this.getAllTask());
           }
@@ -53,15 +68,31 @@ this.taskDescription = this.taskList[i].description;
 }
 
 showCategory(){
-    this.taskCategory = this.taskList[this.i].Category;
-    console.log(this.taskCategory.name) ;
+    this.showcategory = true;
+    this.showuser = false;
+    this.showstat = false;
+    this.taskCategoryName = this.taskList[this.i].Category.name;
+    this.taskCategoryDescription = this.taskList[this.i].Category.description;
 }
 showStat()
 {
-  this.taskStat = this.taskList[this.i].Stad;
+  this.showcategory = false;
+  this.showuser = false;
+  this.showstat = true;
+  this.taskStatname = this.taskList[this.i].Stad.name;
+  this.taskStatregister = this.taskList[this.i].Stad.register;
 }
 showUser()
 {
-  this.taskUser = this.taskList[this.i].User;
+  this.showcategory = false;
+  this.showuser = true;
+  this.showstat = false;
+  this.taskUsername = this.taskList[this.i].User.name;
+  this.taskUserlastName = this.taskList[this.i].User.lastname;
+  this.taskUseremail = this.taskList[this.i].User.email;
+  this.taskUserpassword = this.taskList[this.i].User.password;
+  this.taskUserdirection = this.taskList[this.i].User.direction;
 }
+
+
 }

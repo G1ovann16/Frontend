@@ -17,7 +17,7 @@ max-height: 80%;
 .sidebar{
     display: flex;
     flex-direction: column;
-    width: 250px;
+    width: 350px;
     padding: 42px;
     border-top-left-radius:  8px;
     border-bottom-left-radius:  8px;
@@ -60,4 +60,10 @@ border-bottom-right-radius:  8px;
     justify-content: space-around;
     height: 2rem;
 }
-
+.botonPlusTask{
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    height: 40px;
+    width: 30px;
+}

@@ -1,4 +1,4 @@
-<div class="centered_content">
+<div class="centered_content" *ngIf="!showAll">
     <div class="task-manager-container">
         <div class="sidebar" >
         <h1 class="title">
@@ -8,10 +8,14 @@
         </h1>
         <div class="list-menu" *ngFor="let tasks of taskList; let i = index" [attr.data-index]="i">
            <a class="list-menu-item text-primary">
-                <p (click)="visible(i)" >  {{tasks.name}} </p>
+           <div class="botonPlusTask">
+               <p (click)="visible(i)">  {{tasks.name}} </p>
+                <button class="btn"><i (click)="delTask(tasks.id)" class="fa fa-trash"></i></button>
+           </div> 
            </a>
         </div>
-        <button class="btn btn-secondary disabled">+ New Task</button>
+        <button class="btn btn-secondary disabled" >+ New Task</button>
+        <!-- (click)="addTask(i)" -->
         </div>
 
         <div class="task-list-container">
@@ -28,10 +32,22 @@
                 <a class="btn btn-primary"  (click)="showUser()" role="button">User</a>
                 <a class="btn btn-primary" (click)="showStat()" role="button">Stat</a>
             </div>
-            <div class="text" *ngFor="let cat of taskCategory" >
-                <p> {{cat}} </p>
-                <!-- <p> {{taskUser}} </p>
-                <p> {{taskStat}} </p> -->
+            <div class="text">
+               <div *ngIf="showcategory">
+                   <p> name: {{taskCategoryName }} </p>
+                   <p> description: {{taskCategoryDescription }} </p>
+               </div>
+               <div *ngIf="showstat">
+                <p> name: {{taskStatname }} </p>
+                <p> register: {{taskStatregister }} </p>
+            </div>
+            <div *ngIf="showuser">
+                <p> name: {{taskUsername }} </p>
+                <p> lastname: {{taskUserlastName }} </p>
+                <p> email: {{taskUseremail }} </p>
+                <p> pasword: {{taskUserpassword }} </p>
+                <p> direction: {{taskUserdirection}} </p>
+            </div>
             </div>
         </div>
         </div>
