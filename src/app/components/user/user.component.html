@@ -1,7 +1,13 @@
-<div class="task-manager-container">
+
+<div class="task-manager-container" *ngIf="showAll"> 
+  <div class="top-rigth"> 
+    <h1 class="title">
       <p class="text-secondary">
-          Users
-        </p>
+        Users
+      </p>
+    </h1>
+    <button class="btn btn-primary " *ngIf="showAll" (click)="showAll=false">+ New User</button>       
+  </div>
     <div class="sidebar" >
     <h1 class="title">
     </h1>
@@ -20,3 +26,20 @@
            <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
          </div>
     </div>
+
+    </div>    
+</div>
+
+
+<form class="example-form" *ngIf="!showAll" #userform="ngForm">
+ <div class="addTask">
+     <h1 class="text-muted">ADD YOUR CATEGORY</h1>
+     <input class="form-control form -control-lg" name="name" ngModel placeholder="NAME"> 
+     <input class="form-control form-control-lg" name="lastname" ngModel placeholder="LASTNAME">
+     <input class="form-control form-control-lg" name="email" ngModel placeholder="EMAIL">
+     <input class="form-control form-control-lg" name="password" ngModel placeholder="PASSWORD">
+     <input class="form-control form -control-lg" name="direction" ngModel placeholder="DIRECTION"> 
+     <input class="form-control form-control-sm" name="TaskId" ngModel placeholder="TaskId"> 
+     <button class="btn btn-outline-info" (click)="addUser(userform)" type="submit">save</button>
+ </div>
+</form>

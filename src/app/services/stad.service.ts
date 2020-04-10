@@ -10,5 +10,8 @@ export class StadService {
   getAll(){
     return this.http.get<any>('http://localhost:3000/stad');
   }
+  setStad(body: any){
+    return this.http.post<any>('http://localhost:3000/stad', body);
+  }
 
 }

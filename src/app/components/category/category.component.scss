@@ -1,0 +1,25 @@
+.task-manager-container{
+display: flex;
+align-items: center;
+width: 60%;
+margin-top: 20px;
+margin-left: 35px;
+}
+
+.btn{
+    margin: 40px;
+}
+
+.addTask{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    }
+    
+    .addTask > input{
+        margin: 5px;
+        padding: 8px;
+        width: 450px;
+    }

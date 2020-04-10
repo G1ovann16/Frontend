@@ -8,7 +8,10 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
+
   userList: any;
+  showAll = true;
+
   constructor(public userService: UserService) { }
 ngOnInit(): void {
   this.getAllUsers();
@@ -25,5 +28,11 @@ this.userService.getAll()
     err => console.log(err)
             );
         }
+        addUser(taskform: NgForm){
+          this.userService.setUser(taskform.value)
+          .subscribe(msn => this.getAllUsers());
+          console.log('entro');
+          this.showAll = true;
+        }
 
-}
+ }

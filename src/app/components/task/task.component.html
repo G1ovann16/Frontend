@@ -27,9 +27,9 @@
             <p *ngIf="!showDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, cum ex illo quis numquam similique dolor aspernatur ab quaerat laboriosam nobis molestiae eius saepe odit ipsa perspiciatis beatae nemo voluptatum!</p>
             <p class="text-primary" *ngIf="showDescription">{{ taskDescription }}</p>
             <div class="boton">
-                <a class="btn btn-primary" (click)="showCategory()"  role="button">Category</a>
-                <a class="btn btn-primary"  (click)="showUser()" role="button">User</a>
-                <a class="btn btn-primary" (click)="showStat()" role="button">Stat</a>
+                <a class="btn btn-secondary " (click)="showCategory()"  role="button">Category</a>
+                <a class="btn btn-secondary "  (click)="showUser()" role="button">User</a>
+                <a class="btn btn-secondary " (click)="showStat()" role="button">Stat</a>
             </div>
             <div class="text">
                <div *ngIf="showcategory">

@@ -71,6 +71,7 @@ this.taskDescription = this.taskList[i].description;
 }
 
 showCategory(){
+    console.log('hola');
     this.showcategory = true;
     this.showuser = false;
     this.showstat = false;

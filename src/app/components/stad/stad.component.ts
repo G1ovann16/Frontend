@@ -9,6 +9,7 @@ import {NgForm} from '@angular/forms';
 })
 export class StadComponent implements OnInit {
   stadList: any;
+  showAll = true;
   constructor(public stadService: StadService) { }
 ngOnInit(): void {
   this.getAllStad();
@@ -25,6 +26,11 @@ this.stadService.getAll()
     err => console.log(err)
             );
         }
-
+        addStad(taskform: NgForm){
+          this.stadService.setStad(taskform.value)
+          .subscribe(msn => this.getAllStad());
+          console.log('entro');
+          this.showAll = true;
+        }
 }
 

@@ -9,6 +9,7 @@ import {NgForm} from '@angular/forms';
 })
 export class CategoryComponent implements OnInit {
   categoryList: any;
+  showAll = true;
   constructor(public categoryService: CategoryService) { }
 ngOnInit(): void {
   this.getAllCategory();
@@ -25,5 +26,10 @@ this.categoryService.getAll()
     err => console.log(err)
             );
         }
-
+        addCategory(taskform: NgForm){
+          this.categoryService.setCategory(taskform.value)
+          .subscribe(msn => this.getAllCategory());
+          console.log('entro');
+          this.showAll = true;
+        }
 }

@@ -10,5 +10,7 @@ export class CategoryService {
   getAll(){
     return this.http.get<any>('http://localhost:3000/category');
   }
-
+  setCategory(body: any){
+    return this.http.post<any>('http://localhost:3000/category', body);
+  }
 }

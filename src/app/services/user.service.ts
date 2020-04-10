@@ -10,5 +10,8 @@ export class UserService {
   getAll(){
     return this.http.get<any>('http://localhost:3000/user');
   }
+  setUser(body: any){
+    return this.http.post<any>('http://localhost:3000/user', body);
+  }
 
 }
