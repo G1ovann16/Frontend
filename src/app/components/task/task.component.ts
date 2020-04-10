@@ -19,6 +19,7 @@ export class TaskComponent implements OnInit {
   @Input() public taskDescription: string ;
   taskUser: {};
   taskStat: {};
+
   //#region var relacionales
   taskCategoryName: string ;
   taskCategoryDescription: string ;
@@ -31,6 +32,7 @@ export class TaskComponent implements OnInit {
   taskUserdirection: string ;
 
   //#endregion
+
   constructor(public taskService: TaskService) { }
 
 
@@ -50,7 +52,7 @@ this.taskService.getAll()
         }
 
 addTask(taskform: NgForm){
-  this.showAll = true;
+  this.showAll = false;
   this.taskService.setTask(taskform.value)
   .subscribe(msn => this.getAllTask());
           }
@@ -59,7 +61,8 @@ delTask(i: number){
   this.taskService.erase(i)
   .subscribe(msn => this.getAllTask());
 
-          }
+}
+
 visible(i: number){
 this.showDescription = true;
 this.i = i;

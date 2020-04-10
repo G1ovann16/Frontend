@@ -14,8 +14,7 @@
            </div> 
            </a>
         </div>
-        <button class="btn btn-secondary disabled" >+ New Task</button>
-        <!-- (click)="addTask(i)" -->
+        <button class="btn btn-secondary disabled" (click)="showAll=true"  >+ New Task</button>
         </div>
 
         <div class="task-list-container">
@@ -53,3 +52,15 @@
         </div>
     </div>
 </div>
+<form class="example-form" *ngIf="showAll" #taskform="ngForm" >
+    <div class="addTask">
+        <h1 class="text-muted">ADD YOUR TASK</h1>
+        <input class="form-control form -control-lg" name="name" ngModel placeholder="NAME"> 
+        <input class="form-control form-control-lg" name="description" ngModel placeholder="DESCRIPTION">
+        <input class="form-control form-control-sm" name="StadId" ngModel placeholder="statId">
+        <input class="form-control form-control-sm" name="CategoryId" ngModel placeholder="categoryId">
+        <input class="form-control form-control-sm" name="UserId" ngModel placeholder="userId"> 
+        <button class="btn btn-outline-info" (click)="addTask(taskform)" type="submit">save</button>
+        <!--   -->
+    </div>
+</form>
