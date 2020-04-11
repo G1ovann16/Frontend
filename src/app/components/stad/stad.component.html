@@ -17,14 +17,14 @@
   </div>
   </div>
 </div>
-  <button class="btn btn-primary" *ngIf="showAll" (click)="showAll=false">+ New User</button>       
+  <button class="btn btn-primary" *ngIf="showAll" (click)="showAll=false">+ New Stat</button>       
 
   <form class="example-form" *ngIf="!showAll" #stadform="ngForm" >
    <div class="addTask">
        <h1 class="text-muted">ADD YOUR STAD</h1>
        <input class="form-control form -control-lg" name="name" ngModel placeholder="NAME"> 
-       <input class="form-control form-control-lg" name="register" ngModel placeholder="REGISTER">
-       <input class="form-control form-control-sm" name="TaskId" ngModel placeholder="TaskId"> 
+       <input class="form-control form -control-lg" name="register" ngModel placeholder="REGISTER">
+       <input class="form-control form -control-lg" name="TaskId" ngModel placeholder="TaskId"> 
        <button class="btn btn-outline-info" (click)="addStad(stadform)" type="submit">save</button>
    </div>
 </form>

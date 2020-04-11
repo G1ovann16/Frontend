@@ -10,7 +10,7 @@
            <a class="list-menu-item text-primary">
            <div class="botonPlusTask">
                <p (click)="visible(i)">  {{tasks.name}} </p>
-                <button class="btn"><i (click)="delTask(tasks.id)" class="fa fa-trash"></i></button>
+               <i (click)="delTask(tasks.id)" class="fa fa-trash"></i>
            </div> 
            </a>
         </div>
@@ -33,19 +33,19 @@
             </div>
             <div class="text">
                <div *ngIf="showcategory">
-                   <p> name: {{taskCategoryName }} </p>
-                   <p> description: {{taskCategoryDescription }} </p>
+                   <p> name: {{taskcategory["name"] }} </p>
+                   <p> description: {{taskcategory["description"] }} </p>
                </div>
                <div *ngIf="showstat">
-                <p> name: {{taskStatname }} </p>
-                <p> register: {{taskStatregister }} </p>
+                <p> name: {{taskstat["name"] }} </p>
+                <p> register: {{taskstat["register"] }} </p>
             </div>
             <div *ngIf="showuser">
-                <p> name: {{taskUsername }} </p>
-                <p> lastname: {{taskUserlastName }} </p>
-                <p> email: {{taskUseremail }} </p>
-                <p> pasword: {{taskUserpassword }} </p>
-                <p> direction: {{taskUserdirection}} </p>
+                <p> name: {{taskuser["name"] }} </p>
+                <p> lastname: {{taskuser["lastname"]}} </p>
+                <p> email: {{taskuser["email"] }} </p>
+                <p> pasword: {{taskuser["password"] }} </p>
+                <p> direction: {{taskuser["direction"]}} </p>
             </div>
             </div>
         </div>
@@ -56,10 +56,10 @@
     <div class="addTask">
         <h1 class="text-muted">ADD YOUR TASK</h1>
         <input class="form-control form -control-lg" name="name" ngModel placeholder="NAME"> 
-        <input class="form-control form-control-lg" name="description" ngModel placeholder="DESCRIPTION">
-        <input class="form-control form-control-sm" name="StadId" ngModel placeholder="statId">
-        <input class="form-control form-control-sm" name="CategoryId" ngModel placeholder="categoryId">
-        <input class="form-control form-control-sm" name="UserId" ngModel placeholder="userId"> 
+        <input class="form-control form -control-lg" name="description" ngModel placeholder="DESCRIPTION">
+        <input class="form-control form -control-lg" name="StadId" ngModel placeholder="statId">
+        <input class="form-control form -control-lg" name="CategoryId" ngModel placeholder="categoryId">
+        <input class="form-control form -control-lg" name="UserId" ngModel placeholder="userId"> 
         <button class="btn btn-outline-info" (click)="addTask(taskform)" type="submit">save</button>
         <!--   -->
     </div>

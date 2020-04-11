@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../services/user.service';
 import {NgForm} from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-user',
@@ -8,10 +10,12 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-
   userList: any;
+  list = {};
   showAll = true;
-
+  j: number;
+  data = [];
+  showProperty = false;
   constructor(public userService: UserService) { }
 ngOnInit(): void {
   this.getAllUsers();
@@ -34,5 +38,10 @@ this.userService.getAll()
           console.log('entro');
           this.showAll = true;
         }
+        select(i: number){
+          this.j = i;
+          this.showProperty = !this.showProperty;
+          this.list = this.userList[i];
+        }
 
- }
+}

@@ -1,45 +1,57 @@
-
-<div class="task-manager-container" *ngIf="showAll"> 
-  <div class="top-rigth"> 
+<div class="task-manager-container" *ngIf="showAll">
+  <div class="top-rigth">
     <h1 class="title">
       <p class="text-secondary">
         Users
       </p>
     </h1>
-    <button class="btn btn-primary " *ngIf="showAll" (click)="showAll=false">+ New User</button>       
+    <button class="btn btn-primary" (click)="showAll=false">+ New User</button>
   </div>
-    <div class="sidebar" >
-    <h1 class="title">
-    </h1>
-    <div class="list-menu" *ngFor="let user of userList" >
-       <a class="list-menu-item text-primary">
-        <div class="wrap">
-          <p>  name: {{user.name}} </p>
-          <p>  lastName: {{user.lastName}} </p>
-          <p>  email: {{user.email}} </p>
-          <p>  password: {{user.password}} </p>
-          <p>  direction: {{user.direction}} </p>
-          <p *ngIf="!!user.taskId">  link to task: {{user.taskId}} </p>
-        </div>
+  <div class="sidebar">
+    <div class="list-menu" *ngFor="let user of userList; let i = index" [attr.data-index]="i">
+      <a class="list-menu-item text-primary">
+        <p> name: {{user.name}} </p>
       </a>
-          <div class="progress">
-           <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-         </div>
-    </div>
+      <p>
+        <button type="button" class="btn btn-outline-primary" (click)="select(i)" aria-controls="collapseExample">
+        Read more...
+        </button>
+      </p>
+    
 
-    </div>    
+    <div id="collapseExample" *ngIf="showProperty" class="block">
+      <div class="card" *ngIf="">
+        <div class="card-body">
+          <div class="wrap">
+            <p> lastName: {{list["lastname"]}} </p>
+            <p>  email: {{list["email"]}} </p>
+            <p>  password: {{list["password"]}} </p>
+            <p>  direction: {{list["direction"]}} </p>
+            <!-- <div *ngIf="{{!!userList["taskId"]}}"></div>
+                <p> link to task: {{userList["taskId"]}}</p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0"
+        aria-valuemax="100"></div>
+    </div>
+  </div>
 </div>
 
+ 
 
 <form class="example-form" *ngIf="!showAll" #userform="ngForm">
- <div class="addTask">
-     <h1 class="text-muted">ADD YOUR CATEGORY</h1>
-     <input class="form-control form -control-lg" name="name" ngModel placeholder="NAME"> 
-     <input class="form-control form-control-lg" name="lastname" ngModel placeholder="LASTNAME">
-     <input class="form-control form-control-lg" name="email" ngModel placeholder="EMAIL">
-     <input class="form-control form-control-lg" name="password" ngModel placeholder="PASSWORD">
-     <input class="form-control form -control-lg" name="direction" ngModel placeholder="DIRECTION"> 
-     <input class="form-control form-control-sm" name="TaskId" ngModel placeholder="TaskId"> 
-     <button class="btn btn-outline-info" (click)="addUser(userform)" type="submit">save</button>
- </div>
+    <div class="addTask">
+        <h1 class="text-muted">ADD YOUR USER</h1>
+        <input class="form-control form -control-lg" name="name" ngModel placeholder="NAME"> 
+        <input class="form-control form -control-lg" name="lastname" ngModel placeholder="LASTNAME">
+        <input class="form-control form -control-lg" name="email" ngModel placeholder="EMAIL">
+        <input class="form-control form -control-lg" name="password" ngModel placeholder="PASSWORD">
+        <input class="form-control form -control-lg" name="direction" ngModel placeholder="DIRECTION">
+        <input class="form-control form -control-lg" name="TaskId" ngModel placeholder="TaskId">
+        <button class="btn btn-outline-info" (click)="addUser(userform)" type="submit">save</button>
+    </div>
 </form>
